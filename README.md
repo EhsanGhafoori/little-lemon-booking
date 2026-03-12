@@ -1,77 +1,73 @@
-# Little Lemon - Table Booking
+# Little Lemon Food Ordering App
 
-A React web app for reserving a table at the Little Lemon restaurant. Built as the Front-End Capstone project (Coursera / Meta).
+React Native (Expo) capstone project for the Meta/Coursera course. A mobile app for the Little Lemon restaurant with onboarding, home menu, and profile.
+
+## Wireframe
+
+The design is based on the wireframe in this repository: **wireframe.png**
 
 ## Features
 
-- **Booking form** – Date, time, number of guests, occasion, name, email, optional phone and special requests
-- **Validation** – Required fields, email format, phone format, date (today or future), guests (1–10)
-- **Accessibility** – Semantic HTML, ARIA attributes, labels, skip link, focus management, error announcements
-- **Responsive layout** – Works on mobile and desktop
-- **Unit tests** – Validation and form behaviour covered with Vitest and React Testing Library
+- **Onboarding**: First-time users are prompted to enter first name, last name, and email. The **Next** button is only enabled when all fields are filled.
+- **Home screen**: Header (logo + profile icon), hero section (Little Lemon description + search bar), menu breakdown (selectable categories: Starters, Mains, Desserts, Drinks), and a summarized food menu list (name, description, price, image).
+- **Profile**: Pre-filled with onboarding data. Save/Discard changes; changes are retained after app restart. **Log out** clears all data and returns to onboarding.
+- **Navigation**: Stack navigation with **Back** button on the Profile screen.
 
 ## Prerequisites
 
-- Node.js 18+ and npm (or yarn/pnpm)
+- Node.js 18+
+- npm or yarn
+- Expo Go app on your phone (optional, for physical device) or iOS Simulator / Android Emulator
 
-## Setup
+## Setup and run
 
-1. Clone the repository:
+1. **Clone the repository**
    ```bash
    git clone https://github.com/EhsanGhafoori/little-lemon-booking.git
    cd little-lemon-booking
    ```
 
-2. Install dependencies:
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. Start the development server:
+3. **Start the app**
    ```bash
-   npm run dev
+   npx expo start
    ```
 
-4. Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-## Scripts
-
-| Command        | Description                    |
-|----------------|--------------------------------|
-| `npm run dev`  | Start dev server (Vite)        |
-| `npm run build`| Production build               |
-| `npm run preview` | Preview production build    |
-| `npm run test` | Run tests in watch mode        |
-| `npm run test:run` | Run tests once             |
+4. **Run on device/simulator**
+   - Press `i` for iOS Simulator (Mac only)
+   - Press `a` for Android Emulator
+   - Or scan the QR code with Expo Go on your phone
 
 ## Project structure
 
 ```
-little-lemon-booking/
-├── public/
+├── App.js                 # Entry: navigation, onboarding check
+├── wireframe.png          # Design wireframe (submission requirement)
 ├── src/
-│   ├── components/     # Header, Footer, BookingForm
-│   ├── utils/          # validation helpers
-│   ├── test/           # test setup
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── index.html
-├── package.json
-├── vite.config.js
-└── README.md
+│   ├── context/
+│   │   └── UserContext.js  # User state, AsyncStorage
+│   ├── data/
+│   │   └── menuItems.js   # Menu items and categories
+│   └── screens/
+│       ├── OnboardingScreen.js
+│       ├── HomeScreen.js
+│       └── ProfileScreen.js
+├── app.json
+├── babel.config.js
+└── package.json
 ```
 
-## Validation rules
+## Testing the grading criteria
 
-- **Date**: Required; must be today or a future date.
-- **Time**: Required; valid time format.
-- **Guests**: Required; between 1 and 10.
-- **Occasion**: Required; must select an option.
-- **Name**: Required; non-empty.
-- **Email**: Required; valid email format.
-- **Phone**: Optional; if provided, at least 10 digits.
-- **Special requests**: Optional.
+1. **Wireframe**: See `wireframe.png` in the repo.
+2. **Onboarding**: Clear app data or uninstall/reinstall; open app → you should see the onboarding form. Next is disabled until name and email are entered.
+3. **Home layout**: Header (logo, profile icon), hero (description + search), menu categories (tap to filter), scrollable menu list.
+4. **Profile**: Tap profile icon on Home → Profile shows your onboarding data. Edit and Save → restart app → data persists. Log out → all data cleared, onboarding shown again.
+5. **Back button**: On Profile screen, use the header Back button to return to Home.
 
 ## License
 

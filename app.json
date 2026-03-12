@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Little Lemon",
+    "slug": "little-lemon-food-ordering",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#495E57"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.littlelemon.foodordering"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#495E57"
+      },
+      "package": "com.littlelemon.foodordering"
+    }
+  }
+}
